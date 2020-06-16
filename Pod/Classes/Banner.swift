@@ -147,10 +147,9 @@ open class Banner: UIView {
     @objc public let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         imageView.layer.cornerRadius = 25
         imageView.layer.masksToBounds = false
-        
         return imageView
         }()
     
