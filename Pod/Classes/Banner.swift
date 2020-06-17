@@ -148,7 +148,7 @@ open class Banner: UIView {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
-        imageView.layer.cornerRadius = 25
+        imageView.layer.cornerRadius = 45/2
         imageView.layer.masksToBounds = false
         return imageView
         }()
@@ -301,7 +301,7 @@ open class Banner: UIView {
                 var size: CGFloat = 40.0
                 if roundedImage {
                     imageView.layer.masksToBounds = true
-                    size = 50.0
+                    size = 45.0
                 }
                 contentView.addSubview(imageView)
                 contentView.addConstraint(imageView.constraintWithAttribute(.leading, .equal, to: contentView, constant: 15.0))
