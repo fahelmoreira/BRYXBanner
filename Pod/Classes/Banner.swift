@@ -81,7 +81,7 @@ open class Banner: UIView {
     }
     
     /// The height of the banner. Default is 80.
-    @objc open var minimumHeight: CGFloat = 100
+    @objc open var minimumHeight: CGFloat = 70
     
     /// Whether or not the banner should show a shadow when presented.
     @objc open var hasShadows = true {
@@ -124,7 +124,7 @@ open class Banner: UIView {
     /// The label that displays the banner's title.
     @objc public let titleLabel: UILabel = {
         let label = UILabel()
-        label.font = label.font.withSize(16)
+        label.font = label.font.withSize(15)
         label.font = UIFont.boldSystemFont(ofSize: label.font.pointSize)
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -134,7 +134,7 @@ open class Banner: UIView {
     /// The label that displays the banner's subtitle.
     @objc public let detailLabel: UILabel = {
         let label = UILabel()
-         label.font = label.font.withSize(14)
+         label.font = label.font.withSize(12)
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -168,7 +168,7 @@ open class Banner: UIView {
     /// - parameter image: The image on the left of the banner. Optional. Defaults to nil.
     /// - parameter backgroundColor: The color of the banner's background view. Defaults to `UIColor.blackColor()`.
     /// - parameter didTapBlock: An action to be called when the user taps on the banner. Optional. Defaults to `nil`.
-    @objc public required init(title: String? = nil, subtitle: String? = nil, image: UIImage? = nil, enableProgress: Bool = false, backgroundColor: UIColor = UIColor.black, didTapBlock: (() -> ())? = nil, animateIcon: Bool = false, roundedImage: Bool = false) {
+    @objc public required init(title: String? = nil, subtitle: String? = nil, image: UIImage? = nil, enableProgress: Bool = false, backgroundColor: UIColor = UIColor.black, didTapBlock: (() -> ())? = nil, animateIcon: Bool = false, roundedImage: Bool = false, titleSize:CGFloat = 15, subTitleSize: CGFloat = 12) {
         self.didTapBlock = didTapBlock
         self.image = image
         self.enableProgress = enableProgress
@@ -181,7 +181,9 @@ open class Banner: UIView {
         resetTintColor()
         imageView.image = image
         titleLabel.text = title
+        titleLabel.font = titleLabel.font.withSize(titleSize)
         detailLabel.text = subtitle
+        detailLabel.font = detailLabel.font.withSize(subTitleSize)
         backgroundView.backgroundColor = backgroundColor
         backgroundView.alpha = 0.95
         springiness = .custom
